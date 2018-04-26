@@ -33,7 +33,7 @@ class SoundLIstAdapter(private val listener: (v: View?) -> Unit) : RecyclerView.
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         data?.get(position)?.let {
-            (holder as? SoundViewHolder)?.fillData(position, it)
+            (holder as? SoundViewHolder)?.fillData(position + 1, it)
         }
     }
 
