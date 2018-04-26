@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadData(fromNetwork: Boolean) {
         val snackBar = if (fromNetwork)
-            indefiniteSnackbar(viewGroup, "Indexing, please wait...") else null
+            indefiniteSnackbar(viewGroup, "Updating database, please wait...") else null
         doAsync {
             val list = if (fromNetwork) loadFromNetwork() else loadJsonFromSdcard()
             SoundRepo.sounds = list
@@ -157,6 +157,10 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.action_petalbaby -> {
                     browse("https://www.reddit.com/r/gonewildaudio/comments/7qmer1/f4m_12_little_girl_audios_age_teen_ddlg_petals/")
+                    true
+                }
+                R.id.about -> {
+                    browse("https://github.com/garywzh/Soundgasm")
                     true
                 }
                 else -> false

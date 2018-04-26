@@ -24,4 +24,8 @@
         android:id="@+id/action_update_database"
         android:title="@string/update_database"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/about"
+        android:title="@string/about"
+        app:showAsAction="never" />
 </menu>
