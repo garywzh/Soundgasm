@@ -3,7 +3,6 @@ package com.garywzh.soundgasm.ui
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.SearchView
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import com.garywzh.soundgasm.Constants
@@ -20,7 +19,7 @@ import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.*
 import org.jetbrains.anko.design.indefiniteSnackbar
-import org.jetbrains.anko.design.snackbar
+import org.jetbrains.anko.design.longSnackbar
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
@@ -38,15 +37,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadData(fromNetwork: Boolean) {
         val snackBar = if (fromNetwork)
-            indefiniteSnackbar(viewGroup, "Updating database, please wait...") else null
+            indefiniteSnackbar(viewGroup, "Indexing, please wait...") else null
         doAsync {
             val list = if (fromNetwork) loadFromNetwork() else loadJsonFromSdcard()
-            Log.d("Sound List", "list count: ${list.size}")
             SoundRepo.sounds = list
             uiThread {
                 snackBar?.let {
                     it.dismiss()
-                    snackbar(viewGroup, "Done!")
+                    longSnackbar(viewGroup, "${list.size} audios indexed.")
                 }
                 (fragment as SoundListFragment).setData(list)
             }
