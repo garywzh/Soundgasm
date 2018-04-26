@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Soundgasm</string>
+    <string name="all_artists">All Artists</string>
+    <string name="update_database">Update Database</string>
+    <string name="belle_in_the_woods">belle_in_the_woods</string>
+    <string name="petalbaby">petalbaby</string>
+    <string name="search">Search</string>
+</resources>
